@@ -1,0 +1,56 @@
+
+<div id="user_details"> </div>
+
+<br />
+Name: <%=text_field_tag 'name','', :size=>'15', :id=>'name'%>
+Email: <%=email_field_tag 'email','', :size=>'15', :id=>'email'%>
+<%= link_to  'Save','javascript:save()' %>
+<br/>
+UserId : <%=text_field_tag 'id','', :size=>'5', :id=>'id'%> <%= link_to  'Get','javascript:fetch()' %>
+<br/>
+UserId : <%=text_field_tag 'id','', :size=>'5', :id=>'id1'%>
+Name: <%=text_field_tag 'name','', :size=>'15', :id=>'name1'%>
+Email: <%=email_field_tag 'email','', :size=>'15', :id=>'email1'%>
+<%= link_to  'Update','javascript:update()' %>
+
+<script type="text/javascript">
+	UserModel = Backbone.Model.extend({
+		defaults: {
+			name: "Prathyusha",
+			email: "prathyu@gmail.com"
+		},
+		url: "/users"
+	});
+
+// delete user
+// model.destroy(success:function(){alert("user removed.")})
+
+//save user 
+function save() {
+	var userModel = new UserModel();
+	userModel.set();
+	var userDetails = {name:document.getElementById('name').value, email:document.getElementById('email').value};
+	
+	// saving user details using model object
+	userModel.save(userDetails, {
+			success: function(user){alert("User " + user.get("name") + " saved." )}
+		});
+}
+// Get user details
+function fetch() {
+	// getting user details 
+	var userModelFetch = new UserModel({id: document.getElementById('id').value});	
+	userModelFetch.fetch({success:function(user){alert("Fetched user Details : " + user.get("name"))}});
+}
+
+//update
+function update() {
+	//updating user detail
+	var id= document.getElementById('id1').value;
+	var email = document.getElementById('email1').value;
+	var name = document.getElementById('name1').value;
+	var userDetails = {id: id, email:email, name:name};
+	var userModelUpdate = new UserModel();
+	userModelUpdate.save(userDetails, {success:function(user){alert("Updated user email :" + user.get("email"))}});
+}
+</script>

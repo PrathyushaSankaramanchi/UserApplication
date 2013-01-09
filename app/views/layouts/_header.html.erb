@@ -1,0 +1,13 @@
+<header>
+<div class="round">
+	<%if session[:user] != nil%>
+		<table align=right>
+			<tr>
+				<td><%= link_to "Home", home_path %></td>
+				<td><%= link_to "Cart", cart_path %></td>
+				<td><%= link_to "Sign out", signout_path %></td>	
+			</tr>
+		</table>
+	<%end%>
+</div>
+</header>

@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Friends View</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.cdnjs.com/ajax/libs/underscore.js/1.1.4/underscore-min.js"></script>
+<script type="text/javascript" src="http://ajax.cdnjs.com/ajax/libs/backbone.js/0.3.3/backbone-min.js"></script>
+</head>
+<body>
+
+<input type="text" placeholder="Enter friend's name" id="input" />
+<button id="add-input">Add a Friend</button>
+
+<ul id="friends-list">
+</ul>
+<script type="text/javascript">
+
+$(function() {
+
+FriendList = Backbone.Collection.extend({
+    initialize: function(){
+		console.log("initialized");
+    }
+});
+
+FriendView = Backbone.View.extend({
+
+    tagName: 'li',
+
+    events: {
+        'click #add-input':  'getFriend',
+    },
+
+    initialize: function() {
+        var thisView = this;
+        this.friendslist = new FriendList;
+        _.bindAll(this, 'render');
+        this.friendslist.bind("add", function( model ){
+            alert("hey");
+            thisView.render( model );
+        })
+    },
+
+    getFriend: function() {
+        var friend_name = $('#input').val();
+        this.friendslist.add( {name: friend_name} );
+    },
+
+    render: function( model ) {
+        $("#friends-list").append("<li>"+ model.get("name")+"</li>");
+        console.log('rendered')
+    },
+
+});
+
+var view = new FriendView({el: 'body'});
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<script type="text/javascript">
+	SampleRouter = Backbone.Router.extend({
+		routes: {"*actions":"defaultRoute"}
+	});
+	var samplerouter = new SampleRouter();
+	 samplerouter.on("route:defaultRoute", function(actions) {alert(actions)});
+	 
+</script>

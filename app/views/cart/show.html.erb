@@ -1,0 +1,10 @@
+<h3>Current Cart :</h3> 
+
+
+<%@cartVal.flatten!
+	@cartVal.each { |r| %>
+	<br/>
+	<%r.each_pair do |k,v|%>
+		<%= k %> => <%= v%>			
+	<%end%>	
+	<%}%>

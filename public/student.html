@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="https://raw.github.com/appendto/jquery-mockjax/master/jquery.mockjax.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.2.2/underscore-min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.5.3/backbone-min.js"></script>
+
+<title>Hello..First Program on backbone js...!!!</title>
+</head>
+<body>
+  <div id="student-container">
+    <button id="test">GetStudentData</button>
+    <ul id="students">    	
+    	
+    </ul>
+  </div>
+  
+	<script type="text/javascript">
+	  $.mockjax({
+	  url: '/test',
+	  contentType: 'text/json',
+	  responseText: [{"id": "1233","name": "Varenya"},{"id": "1234","name": "Prathyusha"}]
+	});
+
+	var StudentModel = Backbone.Model.extend({
+		initialize: function(){
+			console.log("Student Model Initialized..!!");
+		}
+		});
+
+	var StudentsCollection = Backbone.Collection.extend({
+		initialize: function(){
+			console.log("Student Collection Initialized..!!");
+		},
+		model: StudentModel,
+		url: '/test'
+	});
+
+	var StudentView = Backbone.View.extend({
+	  
+	  el: '#student-container',
+	  
+	  events: {
+		'click #test': 'fetchData'
+	  },
+	  
+	  initialize: function() {
+		  console.log("Student View Initialized..!!");
+		_.bindAll(this, 'render', 'fetchData');
+		this.collection.bind('reset', this.render);
+	  },
+	  
+	  render: function(){
+		var ul = $('#students').empty();
+		
+		this.collection.each(function(item) {
+		  $('<li>').text(item.get('id') + ': ' + item.get('name')).appendTo(ul);
+		});
+	  },
+	  
+	  fetchData: function() {
+		this.collection.fetch();
+	  }
+	});
+
+	var studentview = new StudentView({ collection: new StudentsCollection() });
+
+  </script>
+</body>
+</html>

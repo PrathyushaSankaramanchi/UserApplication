@@ -1,0 +1,22 @@
+<title>Sign in</title>
+<div class="signin">
+    <table align="center">
+    	<th align="center"><td align="center"><h1>Sign in</h1></td></th>
+    	<%session[:user] = nil%>
+        <%= form_for(:session, :url => sessions_path) do |f| %>
+        
+	<tr>
+      <td>  <%= f.label :name %></td>
+      <td>  <%= f.text_field :name %></td>
+	</tr>
+	<tr>
+		<td><%= f.label :email %></td>
+        <td><%= f.text_field :email %></td>  
+	</tr>
+	<tr></tr>
+	<tr><td></td>
+      <td align="center">  <%= f.submit "Sign in"%></td>
+       <% end %>
+	</tr>
+	<tr></tr> 
+</div>

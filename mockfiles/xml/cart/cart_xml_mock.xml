@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sps.common.restlet.CollectionPartQueryResult>
+	<resources>
+		<resource class="sps.resource.pojo.order.Order">
+			<sps.resource.pojo.order.Order>
+				<productTotal>0.09</productTotal>
+				<productTax>0.08</productTax>
+				<productDiscount>0.00</productDiscount>
+				<shippingTotal>0.99</shippingTotal>
+				<shippingTax>0.00</shippingTax>
+				<shippingDiscount>0.00</shippingDiscount>
+				<totalRefund>0.00</totalRefund>
+				<createDate>2013-01-06 07:10:40.98 PST</createDate>
+				<updateDate>2013-01-06 07:10:52.829 PST</updateDate>
+				<shipBins>
+					<sps.resource.pojo.order.ShipBin>
+						<productTotal>0.09</productTotal>
+						<productTax>0.08</productTax>
+						<productDiscount>0.00</productDiscount>
+						<shippingTotal>0.99</shippingTotal>
+						<shippingTax>0.00</shippingTax>
+						<shippingDiscount>0.00</shippingDiscount>
+						<totalRefund>0.00</totalRefund>
+						<lineItems>
+							<sps.resource.pojo.order.LineItem>
+								<productTotal>0.09</productTotal>
+								<productTax>0.08</productTax>
+								<productDiscount>0.00</productDiscount>
+								<shippingTotal>0.99</shippingTotal>
+								<shippingTax>0.00</shippingTax>
+								<shippingDiscount>0.00</shippingDiscount>
+								<totalRefund>0.00</totalRefund>
+								<lineItemId>260057050</lineItemId>
+								<skuId>CommerceProduct_7182</skuId>
+								<projectId>1234</projectId>
+								<quantity>1</quantity>
+								<vendor>district_west</vendor>
+								<subscriptionId>0</subscriptionId>
+								<priceLevel>0</priceLevel>
+								<lineItemOptions/><refunds/>
+							</sps.resource.pojo.order.LineItem>
+						</lineItems>
+						<shipBinId>246319050</shipBinId>
+						<deliveryOption>ufc</deliveryOption>
+						<deliveryMethod>mail_order</deliveryMethod>
+						<shippingAddressId>1000000,CO,80525,FC</shippingAddressId>
+					</sps.resource.pojo.order.ShipBin>		
+				</shipBins>
+				<partnerId>1</partnerId>
+				<accountId>37000050</accountId>
+				<label>mobile</label><creditCardId/>
+				<status>BRW</status><lockState/>
+				<__id>245555050</__id>
+				<shardKey>1591046974</shardKey>
+				<recordSeq>2</recordSeq>
+		</resource>
+		<uri>https://ecommerce1.qa.snapfish.com/v1/order/245555050</uri>
+		</sps.common.restlet.RestletRef>
+		<resource class="sps.resource.pojo.order.Order">
+			<productTotal>0.00</productTotal>
+			<productTax>0.00</productTax>
+			<productDiscount>0.00</productDiscount>
+			<shippingTotal>0.00</shippingTotal>
+			<shippingTax>0.00</shippingTax>
+			<shippingDiscount>0.00</shippingDiscount>
+			<totalRefund>0.00</totalRefund>
+			<createDate>2013-01-04 00:11:07.743 PST</createDate>
+			<updateDate>2013-01-04 00:11:07.743 PST</updateDate>
+			<shipBins/>
+			<partnerId>1</partnerId>
+			<accountId>5000050</accountId>
+			<label>mobile</label>
+			<creditCardId/>
+			<status>BRW</status>
+			<lockState/>
+			<__id>235083050</__id>
+			<shardKey>1072002177</shardKey>
+			<recordSeq>1</recordSeq>
+		</resource>
+		<uri>https://ecommerce1.qa.snapfish.com/v1/order/235083050</uri>
+		</sps.common.restlet.RestletRef>
+	</resources>
+</sps.common.restlet.CollectionPartQueryResult>
